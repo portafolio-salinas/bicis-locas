@@ -56,20 +56,19 @@ function validateForm(){
     }
   }letras(nombre);
 
-    function letras (apellido){
-      var pasoDos = /^[a-zA-Z]*$/;
-      if (!apellido.search(pasoDos)) {
+    function palabras (apellido){
+      var pasoTwo = /^[a-zA-Z]*$/;
+      if (!apellido.search(pasoTwo)){
         return true;
       }else {
         alert("El campo apellido sólo debe permitir caracteres de la A-Z");
         return false;
       }
-    }letras(apellido);
+    }palabras(apellido);
 
       function mayusculaN (nombre) {
         var nomMinus = document.getElementById('name').value.toLowerCase();
         document.getElementById('name').value = nomMinus; //esto transforma a minusculas todo
-
         var nomPriMayus = nombre.substr(0,1).toUpperCase();//convierte la primera letra en mayuscula
         var nombrecito = document.getElementById('name').value;//esto es para llamar de a la primera var
         var arrNom = nombrecito.split("");//esto pasa nombrecito en un array
@@ -85,17 +84,19 @@ function validateForm(){
         var apePriMayus = apellido.substr(0,1).toUpperCase();
         var apellidito = document.getElementById('lastname').value;
         var arrApe = apellidito.split(""); 
-        var quitarA = arrApe.shift(apePriMayus);
-        var agregarA = arrApe.unshift("");
+        var quitarA = arrApe.shift();
+        var agregarA = arrApe.unshift(apePriMayus);
         var apeFinal = arrApe.join("");
         document.getElementById('lastname').value = apeFinal;
       }mayusculaA(apellido);
 
     function contrasenaNula (contrasena) {
-      var valor = document.getElementById('password   ').value;
-        if( isNaN(valor) ) {
+      var contraNula = document.getElementById("input-password").value;
+      if (contraNula.length<6 || contraNula == "password" || contraNula == 123456 || contraNula == 098754) {
+          alert("Contraseña devil");
           return false;
-        }
+      }
+    
     }contrasenaNula(contrasena);
     
     function validarCorreo(correo) {
